@@ -1,4 +1,5 @@
 const Basket = require("./../domain/basket.model")
+const ProductGroupService = require("./productGroup.usecase")
 const MockDatabase =  require("./../../mock/database")
 
 const create = (data) => {
@@ -16,7 +17,12 @@ const getAll = ()  => {
 }
 
 const getById = (id) => {
-  return MockDatabase.baskets.getById(id)
+  const basketData = MockDatabase.baskets.getById(id)
+  let itemsGroups = ProductGroupService.populate(basketData.itemsGroups)
+  const basket = new Basket(basketData)
+  basket.setProductsgroups(itemsGroups)
+
+  return basket
 }
 
 const update = (basket) => {

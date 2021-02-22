@@ -51,6 +51,9 @@ const products = {
     }
 
     return result
+  },
+  getByCode(code){
+    return productsData.find( p => p.code === code)
   }
 }
 

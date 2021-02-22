@@ -5,7 +5,9 @@ class Basket {
 
   constructor(basket){    
     this.id = basket.id ? basket.id : null
+    this.isPurchased = basket.purchased ? basket.purchased : false
     this.checkoutTotal = 0
+    this.items = []
     this.itemsGroups = []
     const items = basket.items ? basket.items.map( i => new Product(i)) : []
     this.setItems(items)
@@ -26,11 +28,22 @@ class Basket {
 
   addItem (item) {
 
+    // Set Currency
     if (this.itemsGroups.length === 0) {
       this.currency = item.currency
     }
 
+    // Revives checkout snapshot from the past if the product prices and discounts changes in the future
+    if (this.isPurchased) {
+      item = this.getItemFromItemList(item.code)
+      
+    }
+
+    if (!this.isItemInItemList(item.code)) 
+      this.items.push(item)
+
     let group = this.getProductGroup(item)
+
 
     if (group === undefined || group === null){
       group = new ProductGroup(item)
@@ -41,6 +54,12 @@ class Basket {
 
     this.updateCheckoutTotal()
 
+  }
+
+  isItemInItemList (code) {
+    const result = this.items.find( i => i.code === code)
+    console.log(result)
+    return result ? true : false
   }
 
   updateCheckoutTotal() {
@@ -62,8 +81,13 @@ class Basket {
     return group
   }
 
+  setProductsgroups (productsGroups) {
+    this.itemsGroups = productsGroups
+  }
+
   asJSON () {
     let object =  {
+      items : this.items,
       itemsGroups : this.itemsGroups,
       checkoutTotal: this.checkoutTotal
     }
