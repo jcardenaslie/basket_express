@@ -1,6 +1,5 @@
 const BasketService = require('./../application/basket.usecase')
 
-
 const create = (req, res, next) => {
   const newBasket = BasketService.create(req.body)
   return res.json(newBasket)
@@ -11,8 +10,9 @@ const getAll = (req, res, next) => {
   return res.json(baskets)
 }
 
-const get = (req, res, next) => {
-  return res.json({})
+const getById = (req, res, next) => {
+  const response = BasketService.getById(req.params.id)
+  return res.json(response)
 }
 
 const update = (req, res, next) => {
@@ -28,7 +28,7 @@ const addProduct = (req, res, next) => {
 }
 
 module.exports = {
-  get,
+  getById,
   create,
   update,
   remove,

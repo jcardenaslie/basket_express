@@ -15,8 +15,8 @@ const getAll = ()  => {
   return MockDatabase.baskets.getAll().map( b => new Basket(b))
 }
 
-const get = (id) => {
-  return {}
+const getById = (id) => {
+  return MockDatabase.baskets.getById(id)
 }
 
 const update = (basket) => {
@@ -32,7 +32,7 @@ const addProduct = (basketId, product) => {
 }
 
 module.exports = {
-  get,
+  getById,
   getAll,
   create,
   update,

@@ -23,7 +23,24 @@ const productsData = [
   },
 ]
 
-const basketsData = []
+const basketsData = [{
+  "itemsGroups": [
+      {
+          "code": "PEN",
+          "unitPrice": 500,
+          "total": 500,
+          "discount": {
+              "discount": 0.5,
+              "unitPrice": 500
+          },
+          "totalDiscount": 500,
+          "discountRule": "two-one-free",
+          "quantity": 2
+      }
+  ],
+  "checkoutTotal": 500,
+  "id": "a0fbc56d-34a1-4063-b201-97856c757743"
+}]
 
 const products = {
   getByCodeList (codeList) {
@@ -50,6 +67,9 @@ const baskets = {
   },
   getAll (){
     return basketsData
+  },
+  getById(id) {
+    return basketsData.find( b => b.id === id)
   }
 }
 
