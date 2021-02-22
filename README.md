@@ -98,6 +98,8 @@ Attributes:
 
 ## Basket Routes
 
+the project includes a postman collection that can be imported
+
 ```rest
 
 // Create basket
