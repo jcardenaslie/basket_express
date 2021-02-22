@@ -27,7 +27,6 @@ class Basket {
   }
 
   addItem (item) {
-
     // Set Currency
     if (this.itemsGroups.length === 0) {
       this.currency = item.currency
@@ -80,7 +79,8 @@ class Basket {
     return group
   }
 
-  setProductsgroups (productsGroups) {
+  setProductsGroups (productsGroups) {
+
     this.itemsGroups = productsGroups
   }
 

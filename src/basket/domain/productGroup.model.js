@@ -11,16 +11,14 @@ class ProductGroup {
   }
 
   addItem (product) {
+
     if (product.code !== this.code) {
       throw new Error("Operation not permited")
     }
 
     this.quantity += 1
-
     this.totalDiscount = this.discount.getDiscount(this.quantity)
-
     this.total = (this.quantity * this.unitPrice ) - this.totalDiscount
-
   }
 }
 

@@ -26,7 +26,8 @@ const remove = (req, res, next) => {
 }
 
 const addProduct = (req, res, next) => {
-  return res.json({})
+  const reponse = BasketService.addProduct(req.params.id, req.body)
+  return res.json(reponse)
 }
 
 const getCheckoutTotal = (req, res, next) => {

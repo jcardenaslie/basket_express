@@ -12,6 +12,6 @@ router.put('/', controller.update )
 
 router.delete('/:id', controller.remove )
 
-router.post('/:id/product', controller.addProduct )
+router.post('/:id/products', controller.addProduct )
 
 module.exports = router

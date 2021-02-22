@@ -23,7 +23,7 @@ const productsData = [
   },
 ]
 
-const basketsData = [{
+let basketsData = [{
   "items": [
       {
           "code": "PEN",
@@ -50,13 +50,13 @@ const basketsData = [{
               "discount": 0.5,
               "unitPrice": 500
           },
-          "totalDiscount": 500,
+          "totalDiscount": 0,
           "discountRule": "two-one-free",
-          "quantity": 2
+          "quantity": 1
       }
   ],
   "checkoutTotal": 500,
-  "id": "0826d750-310a-4c7f-85df-25d129dac5ca"
+  "id": "5a4d7012-80c2-4899-a961-3a049338fc2a"
 }]
 
 const products = {
@@ -87,7 +87,9 @@ const baskets = {
     return basketsData
   },
   getById(id) {
-    return basketsData.find( b => b.id === id)
+    const basket = basketsData.find( b => b.id === id)
+
+    return basket
   },
   remove(id) {
     let index = -1
@@ -108,6 +110,18 @@ const baskets = {
 
     return ( index > -1 )
   },
+  update(updateBasket){
+
+    // REMOVE
+    let index = -1
+    index = basketsData.findIndex( b => b.id === updateBasket.id)
+
+    if (index > -1 ){
+      basketsData.splice(index, 1, updateBasket)
+    }
+
+    return basketsData[index]
+  }
 }
 
 module.exports = {
