@@ -6,7 +6,6 @@ class Basket {
   constructor(basket){    
     this.id = basket.id ? basket.id : null
     this.checkoutTotal = 0
-    this.items = []
     this.itemsGroups = []
     const items = basket.items ? basket.items.map( i => new Product(i)) : []
     this.setItems(items)
@@ -27,7 +26,7 @@ class Basket {
 
   addItem (item) {
 
-    if (this.items.length === 0) {
+    if (this.itemsGroups.length === 0) {
       this.currency = item.currency
     }
 
@@ -65,7 +64,7 @@ class Basket {
 
   asJSON () {
     let object =  {
-      items: this.getItems(),
+      itemsGroups : this.itemsGroups,
       checkoutTotal: this.checkoutTotal
     }
 

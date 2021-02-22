@@ -6,9 +6,9 @@ const create = (data) => {
   let products = MockDatabase.products.getByCodeList(codeList)
   data.items = products
   const basket = new Basket(data)
-  const response = MockDatabase.baskets.create(basket.asJSON())
+  const newBasket = MockDatabase.baskets.create(basket.asJSON())
 
-  return response ? basket.getCheckoutTotal() : {}
+  return newBasket 
 }
 
 const getAll = ()  => {
