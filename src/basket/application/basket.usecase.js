@@ -13,15 +13,21 @@ const create = (data) => {
 }
 
 const getAll = ()  => {
-  return MockDatabase.baskets.getAll().map( b => new Basket(b))
+  const basketsData = MockDatabase.baskets.getAll().map( b => new Basket(b))
+  return basketsData.map ( b => {
+    return populateBasket(b)
+  }) 
 }
 
 const getById = (id) => {
   const basketData = MockDatabase.baskets.getById(id)
-  let itemsGroups = ProductGroupService.populate(basketData.itemsGroups)
-  const basket = new Basket(basketData)
-  basket.setProductsgroups(itemsGroups)
+  return populateBasket(basketData)
+}
 
+const populateBasket = (basketData) => {
+  let itemsGroups = ProductGroupService.populate(basketData.itemsGroups)
+  const basket = new Basket(basket)
+  basket.setProductsgroups(itemsGroups)
   return basket
 }
 
