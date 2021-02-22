@@ -16,7 +16,7 @@
 
 The models were develop with a NoSQL implementation in mind, but it is very easy to implement a SQL dabase drive, as the main structure of the projects follows the Hexagonal architecture pradigm.
 
-## Products
+### Products
 
 Attributes:
 
@@ -50,7 +50,7 @@ Attributes:
   },
 ```
 
-## Basket
+### Basket
 
 Attributes:
 
