@@ -24,6 +24,23 @@ const productsData = [
 ]
 
 const basketsData = [{
+  "items": [
+      {
+          "code": "PEN",
+          "name": "Lan Pen",
+          "price": "5.00€",
+          "discount": 0.5,
+          "discountRule": "two-one-free",
+          "currency": {
+              "symbol": "€",
+              "name": "euro",
+              "delimeter": ".",
+              "nroDecimals": 2,
+              "normalizedPrice": 500
+          },
+          "normPrice": 500
+      }
+  ],
   "itemsGroups": [
       {
           "code": "PEN",
@@ -39,7 +56,7 @@ const basketsData = [{
       }
   ],
   "checkoutTotal": 500,
-  "id": "a0fbc56d-34a1-4063-b201-97856c757743"
+  "id": "0826d750-310a-4c7f-85df-25d129dac5ca"
 }]
 
 const products = {

@@ -29,11 +29,17 @@ const addProduct = (req, res, next) => {
   return res.json({})
 }
 
+const getCheckoutTotal = (req, res, next) => {
+  const response = BasketService.getCheckoutTotal(req.params.id)
+  return res.json(response)
+}
+
 module.exports = {
   getById,
   create,
   update,
   remove,
   addProduct,
-  getAll
+  getAll,
+  getCheckoutTotal
 }

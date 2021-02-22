@@ -37,11 +37,16 @@ const addProduct = (basketId, product) => {
   return {}
 }
 
+const getCheckoutTotal = (id) => {
+  return getById(id).getCheckoutTotal()
+}
+
 module.exports = {
   getById,
   getAll,
   create,
   update,
   remove,
-  addProduct
+  addProduct,
+  getCheckoutTotal
 }

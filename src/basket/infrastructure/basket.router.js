@@ -4,6 +4,8 @@ const controller = require('./basket.controller')
 
 router.get('/:id', controller.getById )
 
+router.get('/:id/checkout/total', controller.getCheckoutTotal )
+
 router.post('/', controller.create )
 
 router.put('/', controller.update )
