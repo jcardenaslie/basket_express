@@ -58,7 +58,6 @@ class Basket {
 
   isItemInItemList (code) {
     const result = this.items.find( i => i.code === code)
-    console.log(result)
     return result ? true : false
   }
 

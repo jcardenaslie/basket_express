@@ -59,8 +59,6 @@ const products = {
 
 const baskets = {
   create (basket) {
-    console.log(basket);
-
     const uuid = uuidv4()
     basket.id = uuid
 

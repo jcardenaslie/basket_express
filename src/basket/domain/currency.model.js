@@ -39,9 +39,6 @@ class Currency {
     const firstPart = formated.substring(0, formated.length - index)
     const secondPart = formated.substring(formated.length - index, formated.length)
 
-    console.log('====================================');
-    console.log(firstPart, secondPart);
-    console.log('====================================');
     return formated = firstPart + "." + secondPart + this.symbol;
   }
 }
