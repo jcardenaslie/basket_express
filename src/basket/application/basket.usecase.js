@@ -24,7 +24,7 @@ const update = (basket) => {
 }
 
 const remove = (id) => {
-  return {}
+  return MockDatabase.baskets.remove(id)
 }
 
 const addProduct = (basketId, product) => {

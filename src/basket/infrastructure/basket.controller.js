@@ -20,7 +20,9 @@ const update = (req, res, next) => {
 }
 
 const remove = (req, res, next) => {
-  return res.json({})
+  const response =  BasketService.remove(req.params.id)
+  const status = response ? "success" : "error"
+  return res.json({status})
 }
 
 const addProduct = (req, res, next) => {

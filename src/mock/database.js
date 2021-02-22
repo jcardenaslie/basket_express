@@ -70,7 +70,26 @@ const baskets = {
   },
   getById(id) {
     return basketsData.find( b => b.id === id)
-  }
+  },
+  remove(id) {
+    let index = -1
+    let count = 0
+
+    for (const basket of basketsData) {
+      
+      index += 1
+      if (basket.id === id) {
+        index = count
+      }
+      count++
+    }
+
+    if (index > -1 ){
+      basketsData.splice(index, 1)
+    }
+
+    return ( index > -1 )
+  },
 }
 
 module.exports = {
